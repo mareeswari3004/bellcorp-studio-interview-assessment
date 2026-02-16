@@ -62,13 +62,20 @@ function Dashboard() {
   const total = transactions.reduce((sum, t) => sum + t.amount, 0);
 
   return (
-    <div className="container mt-5">
-
+    <div className="container mt-5"> 
       <div className="card shadow-lg p-4">
         <h2 className="text-center text-primary mb-4">
           💰 Expense Dashboard
         </h2>
-
+        <button className="btn btn-sm btn-danger position-absolute"
+          style={{ padding: "4px 8px", fontSize: "11px", cursor: "pointer", height: "30px" }}
+          onClick={() => {
+            localStorage.removeItem("token");
+            window.location.href = "/login";
+          }}
+        >
+          Logout
+        </button>
         <h4 className="text-success">
           Total Expense: ₹{total}
         </h4>

@@ -13,9 +13,9 @@ function Login() {
       email,
       password
     });
-
-    localStorage.setItem("token", res.data.token);
-    navigate("/");
+    console.log(res.data);
+    await localStorage.setItem("token", res.data.token);
+    navigate("/dashboard");
   };
 
   return (
